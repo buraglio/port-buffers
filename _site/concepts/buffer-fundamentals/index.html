@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buffer Fundamentals — Packet Buffer Reference</title>
+  <meta name="description" content="What packet buffers are, how Virtual Output Queues work, why microbursts matter, and where to learn more about network performance tuning">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-title">Packet Buffer Reference</a>
+  <nav class="site-nav">
+    <a href="/">Table</a>
+    <a href="/summary/">Summary</a>
+    <details class="nav-dropdown">
+      <summary>Concepts</summary>
+      <div class="nav-dropdown-menu">
+        <a href="/concepts/buffer-fundamentals/">Buffer Fundamentals</a>
+        <a href="/concepts/microburst/">Microbursts</a>
+        <a href="/concepts/trident-plus/">Trident+</a>
+        <a href="/concepts/trident-ii/">Trident II</a>
+        <a href="/concepts/deep-buffer/">Deep Buffer</a>
+        <a href="/concepts/nokia-sr-platform/">Nokia SR (FP4/FP5)</a>
+        <a href="/concepts/nokia-access-agg/">Nokia Access/Agg</a>
+      </div>
+    </details>
+  </nav>
+</header>
+
+<main class="site-main">
+  <div class="page-content">
+  <h1>Buffer Fundamentals</h1>
+  <p>Packet buffers are the on-chip or off-chip memory a network device uses to hold frames temporarily when output demand exceeds the available link rate. Without buffers, any instantaneous mismatch between input and output rates results in a dropped packet. With buffers, the device can absorb a burst and drain it across the output link over time.</p>
+<hr>
+<h2>What Is a Packet Buffer?</h2>
+<p>Every port on a switch or router is connected to a forwarding ASIC. When packets arrive faster than they can be forwarded — because multiple input ports are sending to the same output port, because the output link is slower than the input, or because a scheduler is holding the packet while it services higher-priority traffic — the ASIC places the packet into a queue backed by on-chip or external DRAM.</p>
+<p><strong>Key properties:</strong></p>
+<ul>
+<li><strong>Size</strong> — measured in bytes (MB or GB). Larger buffers absorb longer or larger bursts.</li>
+<li><strong>Shared vs. dedicated</strong> — shared buffers are pooled across all ports; dedicated buffers are statically partitioned per port. Shared models are more efficient but require dynamic allocation logic.</li>
+<li><strong>Ingress vs. egress</strong> — some architectures buffer at the ingress (before forwarding decisions), some at egress (after), and some at both stages.</li>
+<li><strong>On-chip vs. off-chip</strong> — on-chip (HBM or SRAM embedded in the forwarding ASIC) is faster and lower-latency; off-chip DRAM provides higher capacity but adds latency.</li>
+</ul>
+<p>The size of the buffer relative to the bandwidth-delay product of the traffic being carried determines how much of a burst can be absorbed before drops occur.</p>
+<hr>
+<h2>Virtual Output Queues (VoQ)</h2>
+<p>In a shared-buffer switch, a slow or congested output port can prevent packets for other output ports from being forwarded — this is <strong>head-of-line (HOL) blocking</strong>. A packet destined for a healthy port gets stuck behind a packet destined for a congested one.</p>
+<p><strong>VoQ (Virtual Output Queues)</strong> solves this by maintaining separate ingress queues <em>per egress destination</em>:</p>
+<ul>
+<li>Each ingress port holds a separate queue for each output port</li>
+<li>Traffic destined for a congested output waits only in its own queue</li>
+<li>Traffic destined for uncongested outputs proceeds immediately</li>
+</ul>
+<p>The tradeoff: VoQ requires N² queues for N ports, which increases state complexity and memory requirements. It is most common in chassis-based systems with a switch fabric (e.g., Nokia 7250 IXR, Broadcom Jericho/Qumran family) where the fabric separates ingress and egress processing.</p>
+<hr>
+<h2>Microbursts</h2>
+<p>A <strong>microburst</strong> is a burst of traffic so short that it is invisible to standard polling-based monitoring but long enough to fill buffers and cause drops.</p>
+<p>SNMP counters are sampled at intervals — typically every 30 or 60 seconds. A burst that lasts 10 milliseconds and drives a port to line rate will not register as high utilization in a 30-second average, but it will cause drops if the buffer cannot absorb it.</p>
+<p><strong>Why they happen:</strong></p>
+<ul>
+<li>Many flows synchronized by a common trigger (e.g., a completed database query fans out responses to many clients simultaneously)</li>
+<li>Speed mismatch at aggregation points (many 10G input ports feeding a single 100G uplink)</li>
+<li>TCP ACK compression or retransmit storms</li>
+<li>Scheduler dequeuing creating bursts on the output side</li>
+</ul>
+<p><strong>Why they matter:</strong></p>
+<ul>
+<li>A device with a shallow buffer (a few MB) on a 100G port has absorption capacity measured in microseconds — a burst filling the port for 1ms can exhaust the buffer entirely</li>
+<li>Drops during microbursts appear as random packet loss in application traces, not as congestion in utilization graphs</li>
+<li>Hardware buffer depth is the primary tool for dealing with microbursts; software-side solutions (WRED, shaping) are insufficient for sub-millisecond events</li>
+</ul>
+<p><strong>Relationship to RTT:</strong> The &quot;right&quot; buffer size for a given link is often cited as proportional to the bandwidth-delay product: <code>buffer = bandwidth × RTT</code>. A 100G link with a 10ms RTT requires ~125 MB to keep a TCP flow fully utilized through a single-packet loss event. Most datacenter switches offer far less.</p>
+<p>See the <a href="/concepts/microburst/">Microbursts concept page</a> for further discussion and the original Jim Warner definition.</p>
+<hr>
+<h2>Further Reading: Network Performance Tuning</h2>
+<p>The ESnet <strong>fasterdata</strong> knowledge base is a comprehensive resource for host and network performance tuning, including buffer sizing guidance, TCP tuning, and throughput testing:</p>
+<ul>
+<li><a href="https://fasterdata.es.net">fasterdata.es.net</a> — ESnet's network performance wiki</li>
+</ul>
+<p>Key topics covered there relevant to packet buffers and throughput:</p>
+<ul>
+<li>TCP buffer sizing (<code>/host/tcp-tuning/</code>)</li>
+<li>Network performance troubleshooting (<code>/network/</code>)</li>
+<li>Throughput testing tools and methodology (<code>/performance-testing/</code>)</li>
+<li>Host tuning for high-speed transfers (<code>/host/</code>)</li>
+</ul>
+<p>The fasterdata guides are maintained by ESnet (the U.S. Department of Energy science network) and are widely used as the reference for high-performance networking in research and education environments.</p>
+<hr>
+<h2>See Also</h2>
+<ul>
+<li><a href="/concepts/microburst/">Microbursts</a> — definition, examples, and the Jim Warner SNMP argument</li>
+<li><a href="/concepts/deep-buffer/">Deep Buffer</a> — when and why large buffers matter</li>
+<li><a href="/concepts/nokia-sr-platform/">Nokia SR Platform (FP4/FP5)</a> — an example of deep, fully shared buffer architecture</li>
+<li><a href="/concepts/nokia-access-agg/">Nokia Access/Aggregation Platforms</a> — VoQ and fixed-segment architectures in practice</li>
+<li><a href="/">Back to the main buffer table</a></li>
+</ul>
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+  Source: Jim Warner, UCSC (archived 2014). Information is by rumor, innuendo, and extrapolation.
+  Manufacturers rarely publish packet buffer data in their data sheets.
+</footer>
+
+</body>
+</html>

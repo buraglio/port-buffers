@@ -2,19 +2,19 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:         #ffffff;
-  --surface:    #f8f9fa;
-  --border:     #dee2e6;
-  --text:       #212529;
-  --muted:      #6c757d;
-  --accent:     #0d6efd;
-  --accent-dim: #e7f0ff;
-  --header-bg:  #1a1a2e;
+  --bg:         #111118;
+  --surface:    #1a1a24;
+  --border:     #2c2c3e;
+  --text:       #d8d8e8;
+  --muted:      #7070a0;
+  --accent:     #5b9cf6;
+  --accent-dim: #162040;
+  --header-bg:  #0a0a12;
   --header-fg:  #e8e8f0;
-  --section-bg: #eef2ff;
-  --section-fg: #1a1a6e;
+  --section-bg: #1a2040;
+  --section-fg: #9ab0f0;
   --radius:     4px;
-  --shadow:     0 1px 3px rgba(0,0,0,0.1);
+  --shadow:     0 1px 3px rgba(0,0,0,0.4);
   font-size: 16px;
 }
 
@@ -183,6 +183,49 @@ code   {
   border: none;
   border-top: 1px solid var(--border);
   margin: 1.5rem 0;
+}
+
+/* ── Nav dropdown ──────────────────────────────────────── */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--header-fg);
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+.nav-dropdown > summary::-webkit-details-marker { display: none; }
+.nav-dropdown > summary::marker { display: none; }
+.nav-dropdown > summary::after { content: " ▾"; font-size: 0.75em; }
+.nav-dropdown[open] > summary::after { content: " ▴"; }
+.nav-dropdown > summary:hover { opacity: 1; }
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background: var(--header-bg);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+  padding: 0.4rem 0;
+  white-space: nowrap;
+  z-index: 100;
+  min-width: 180px;
+}
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.35rem 1rem;
+  font-size: 0.875rem;
+  color: var(--header-fg);
+  opacity: 0.85;
+  text-decoration: none;
+}
+.nav-dropdown-menu a:hover {
+  opacity: 1;
+  background: rgba(255,255,255,0.07);
+  text-decoration: none;
 }
 
 /* ── Responsive ────────────────────────────────────────── */
