@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nokia 7705 SAR — Packet Buffer Reference</title>
+  <meta name="description" content="Buffer notes for the Nokia 7705 SAR mobile backhaul and TDM transport router">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-title">Packet Buffer Reference</a>
+  <nav class="site-nav">
+    <a href="/">Table</a>
+    <a href="/summary/">Summary</a>
+    <a href="/concepts/microburst/">Microbursts</a>
+    <a href="/concepts/trident-plus/">Trident+</a>
+    <a href="/concepts/trident-ii/">Trident II</a>
+    <a href="/concepts/deep-buffer/">Deep Buffer</a>
+  </nav>
+</header>
+
+<main class="site-main">
+  <div class="page-content">
+  <h1>Nokia 7705 SAR</h1>
+  <p>The Nokia 7705 SAR (Service Aggregation Router) uses a <strong>specialized SAR ASIC</strong> with a unique fixed-segment buffer architecture designed for mobile backhaul and circuit emulation workloads.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Buffer</td>
+<td>~200–300 MB per adapter card</td>
+</tr>
+<tr>
+<td>Buffer Model</td>
+<td>Fixed segments (non-shared)</td>
+</tr>
+<tr>
+<td>Silicon</td>
+<td>SAR ASIC (Nokia proprietary)</td>
+</tr>
+<tr>
+<td>Buffer Unit</td>
+<td>512 bytes (chained) or 2304 bytes (unchained)</td>
+</tr>
+<tr>
+<td>Target Role</td>
+<td>Mobile backhaul, TDM adaptation, circuit emulation</td>
+</tr>
+</tbody>
+</table>
+<h2>Buffer Architecture</h2>
+<h3>Fixed Segment Mode — 2304-byte buffers</h3>
+<p>One packet occupies exactly one buffer segment. No chaining required. Simpler allocation, lower overhead.</p>
+<h3>Buffer Chaining Mode — 512-byte buffers</h3>
+<p>Packets are split across multiple linked buffer segments:</p>
+<ul>
+<li>First segment carries the packet header and partial payload</li>
+<li>Remaining payload is distributed across chained segments</li>
+</ul>
+<p>This allows the router to handle fragmented or variable-length traffic efficiently.</p>
+<h2>QoS Interaction</h2>
+<ul>
+<li>Each queue is configured with an <strong>MBS (Maximum Buffer Size)</strong> value</li>
+<li>Queues can be configured to claim more memory than physically available</li>
+<li>Buffer allocation is <strong>not guaranteed under congestion</strong> — the operator must size MBS values carefully relative to the physical memory on each adapter card</li>
+</ul>
+<h2>What It Handles Well</h2>
+<ul>
+<li>TDM and mobile backhaul traffic with predictable, fixed packet sizes</li>
+<li>Circuit emulation (CES) workloads</li>
+<li>Deterministic per-flow buffer allocation</li>
+</ul>
+<h2>Limitations</h2>
+<ul>
+<li>Less flexible than shared-memory systems — buffer exhaustion is possible under contention</li>
+<li>Fixed segment size creates overhead for very small or very large packets</li>
+<li>Not suitable for elastic packet buffering under variable congestion</li>
+</ul>
+<p>See the <a href="/concepts/nokia-access-agg/">Nokia Access/Aggregation architecture page</a> for cross-platform comparison.</p>
+<p><a href="/">← Back to the main buffer table</a></p>
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+  Source: Jim Warner, UCSC (archived 2014). Information is by rumor, innuendo, and extrapolation.
+  Manufacturers rarely publish packet buffer data in their data sheets.
+</footer>
+
+</body>
+</html>

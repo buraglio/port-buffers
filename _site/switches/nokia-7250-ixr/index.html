@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nokia 7250 IXR — Packet Buffer Reference</title>
+  <meta name="description" content="Buffer notes for the Nokia 7250 IXR aggregation and DC-edge router">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-title">Packet Buffer Reference</a>
+  <nav class="site-nav">
+    <a href="/">Table</a>
+    <a href="/summary/">Summary</a>
+    <a href="/concepts/microburst/">Microbursts</a>
+    <a href="/concepts/trident-plus/">Trident+</a>
+    <a href="/concepts/trident-ii/">Trident II</a>
+    <a href="/concepts/deep-buffer/">Deep Buffer</a>
+  </nav>
+</header>
+
+<main class="site-main">
+  <div class="page-content">
+  <h1>Nokia 7250 IXR</h1>
+  <p>The Nokia 7250 IXR uses <strong>merchant silicon from the Broadcom Jericho/Qumran family</strong>, positioning it as a low-latency, high-throughput aggregation and data center edge platform.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Buffer</td>
+<td>Moderate (shared pool, varies by ASIC)</td>
+</tr>
+<tr>
+<td>Buffer Model</td>
+<td>Shared + VOQ (Virtual Output Queues)</td>
+</tr>
+<tr>
+<td>Silicon</td>
+<td>Broadcom Jericho/Qumran family</td>
+</tr>
+<tr>
+<td>Target Interfaces</td>
+<td>100G / 400G</td>
+</tr>
+<tr>
+<td>Target Role</td>
+<td>Aggregation, DC edge</td>
+</tr>
+</tbody>
+</table>
+<h2>Buffer Architecture</h2>
+<h3>VOQ (Virtual Output Queue)</h3>
+<p>Packets are queued per <strong>egress destination</strong> rather than per ingress port. This eliminates head-of-line blocking — a slow or congested output port cannot stall traffic destined for a healthy port.</p>
+<h3>Shared Buffer Pool</h3>
+<p>Memory is dynamically allocated across ports. The total pool is smaller than FP-based systems (Nokia 7750 SR) but is used efficiently through statistical multiplexing.</p>
+<h3>Depth Profile</h3>
+<p>Shallow-to-moderate by design. The 7250 IXR prioritizes <strong>low latency and high throughput</strong> over sustained burst absorption.</p>
+<h2>What It Handles Well</h2>
+<ul>
+<li>Microbursts of limited duration</li>
+<li>East-west data center traffic patterns</li>
+<li>100G / 400G high-density aggregation</li>
+</ul>
+<h2>Limitations vs FP-based platforms</h2>
+<ul>
+<li>Less effective under sustained congestion</li>
+<li>Reduced headroom under heavy oversubscription</li>
+<li>Smaller total buffer than 7750 SR or 7730 SXR line cards</li>
+</ul>
+<p>See the <a href="/concepts/nokia-access-agg/">Nokia Access/Aggregation architecture page</a> for cross-platform comparison.</p>
+<p><a href="/">← Back to the main buffer table</a></p>
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+  Source: Jim Warner, UCSC (archived 2014). Information is by rumor, innuendo, and extrapolation.
+  Manufacturers rarely publish packet buffer data in their data sheets.
+</footer>
+
+</body>
+</html>

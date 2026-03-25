@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nokia 7750 SR — FP4 and FP5 — Packet Buffer Reference</title>
+  <meta name="description" content="Buffer notes for the Nokia 7750 SR platform with FP4 and FP5 forwarding plane ASICs">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-title">Packet Buffer Reference</a>
+  <nav class="site-nav">
+    <a href="/">Table</a>
+    <a href="/summary/">Summary</a>
+    <a href="/concepts/microburst/">Microbursts</a>
+    <a href="/concepts/trident-plus/">Trident+</a>
+    <a href="/concepts/trident-ii/">Trident II</a>
+    <a href="/concepts/deep-buffer/">Deep Buffer</a>
+  </nav>
+</header>
+
+<main class="site-main">
+  <div class="page-content">
+  <h1>Nokia 7750 SR — FP4 and FP5</h1>
+  <p>The Nokia 7750 SR is a carrier-grade core/edge router built on Nokia's proprietary <strong>FP (Forwarding Plane)</strong> ASIC family. Both FP4 and FP5 generations use a <strong>fully shared packet memory</strong> architecture with a dedicated pre-buffer stage.</p>
+<h2>FP4 Line Cards</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Buffer</td>
+<td>~64 GB per line card</td>
+</tr>
+<tr>
+<td>Buffer Model</td>
+<td>Fully shared ingress + egress</td>
+</tr>
+<tr>
+<td>Pre-buffer</td>
+<td>Multi-million packet capacity</td>
+</tr>
+<tr>
+<td>Default Queues</td>
+<td>128k ingress / 128k egress</td>
+</tr>
+<tr>
+<td>Queue Reallocation</td>
+<td>8k increments</td>
+</tr>
+<tr>
+<td>Throughput Class</td>
+<td>~3 Tbps per NPU</td>
+</tr>
+<tr>
+<td>Target Interfaces</td>
+<td>Up to 400G</td>
+</tr>
+</tbody>
+</table>
+<h2>FP5 Line Cards</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total Buffer</td>
+<td>32–64 GB per line card</td>
+</tr>
+<tr>
+<td>Buffer Model</td>
+<td>Fully shared ingress + egress (enhanced)</td>
+</tr>
+<tr>
+<td>Pre-buffer</td>
+<td>10.8M–21.6M packets (64-byte units)</td>
+</tr>
+<tr>
+<td>Default Queues</td>
+<td>128k ingress / 128k egress</td>
+</tr>
+<tr>
+<td>Queue Reallocation</td>
+<td>16k increments</td>
+</tr>
+<tr>
+<td>Throughput Class</td>
+<td>~6 Tbps per NPU</td>
+</tr>
+<tr>
+<td>Target Interfaces</td>
+<td>400G / 800G</td>
+</tr>
+</tbody>
+</table>
+<h2>Key Architectural Points</h2>
+<ul>
+<li>Buffer is <strong>not statically assigned to ports</strong> — the entire pool is shared across all interfaces on a line card</li>
+<li>A <strong>pre-buffer stage</strong> absorbs microbursts before the forwarding pipeline classifies traffic</li>
+<li>Queues can be reallocated between ingress and egress <strong>without changing the total buffer pool size</strong></li>
+<li>FP5 improves efficiency and scale over FP4 without a significant raw buffer size increase</li>
+</ul>
+<h2>FP4 vs FP5 Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>FP4</th>
+<th>FP5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buffer size</td>
+<td>~64 GB/LC</td>
+<td>32–64 GB/LC</td>
+</tr>
+<tr>
+<td>Pre-buffer</td>
+<td>Multi-million pkts</td>
+<td>10.8M–21.6M pkts</td>
+</tr>
+<tr>
+<td>Queue realloc increment</td>
+<td>8k</td>
+<td>16k</td>
+</tr>
+<tr>
+<td>Throughput class</td>
+<td>~3 Tbps</td>
+<td>~6 Tbps</td>
+</tr>
+<tr>
+<td>Target interfaces</td>
+<td>up to 400G</td>
+<td>400G / 800G</td>
+</tr>
+<tr>
+<td>Key strength</td>
+<td>Deterministic buffering</td>
+<td>Efficiency + scale</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a href="/concepts/nokia-sr-platform/">Nokia SR Platform architecture page</a> for deeper detail on shared buffer pools, pre-buffering, and QoS coupling.</p>
+<p><a href="/">← Back to the main buffer table</a></p>
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+  Source: Jim Warner, UCSC (archived 2014). Information is by rumor, innuendo, and extrapolation.
+  Manufacturers rarely publish packet buffer data in their data sheets.
+</footer>
+
+</body>
+</html>

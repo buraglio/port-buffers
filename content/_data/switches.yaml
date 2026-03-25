@@ -735,3 +735,85 @@
   tx_buffer: ""
   notes: "Complex architecture — see dedicated detail page"
   detail_page: "cisco-catalyst-6500"
+
+# ─────────────────────────────────────────────
+# Nokia SR (FP-based) – 7750 SR / SR-s line cards
+# FP4 and FP5 forwarding plane ASICs; multi-GB shared buffer
+# ─────────────────────────────────────────────
+
+- model: "Nokia 7750 SR (FP4)"
+  vendor: "Nokia"
+  section: "Nokia SR (FP-based)"
+  port_type: "Various line cards (up to 400G)"
+  rx_queue: "128k ingress queues"
+  tx_queue: "128k egress queues"
+  total_buffer: "~64 GB per line card"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Fully shared memory pool; pre-buffer multi-million packets; ~3 Tbps class NPU; 8k queue realloc increments"
+  detail_page: "nokia-7750-sr"
+
+- model: "Nokia 7750 SR (FP5)"
+  vendor: "Nokia"
+  section: "Nokia SR (FP-based)"
+  port_type: "Various line cards (400G/800G)"
+  rx_queue: "128k ingress queues"
+  tx_queue: "128k egress queues"
+  total_buffer: "32–64 GB per line card"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Fully shared memory pool; pre-buffer 10.8M–21.6M packets; ~6 Tbps class NPU; 16k queue realloc increments"
+  detail_page: "nokia-7750-sr"
+
+# ─────────────────────────────────────────────
+# Nokia Access / Aggregation – 7210 SAS, 7250 IXR, 7705 SAR, 7730 SXR
+# Mixed silicon strategies: merchant, SAR ASIC, and FP5
+# ─────────────────────────────────────────────
+
+- model: "Nokia 7210 SAS"
+  vendor: "Nokia"
+  section: "Nokia Access / Aggregation"
+  port_type: "Various (access/demarcation/cell-site)"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "64–512 MB"
+  rx_buffer: "shared ingress/egress"
+  tx_buffer: "shared ingress/egress"
+  notes: "Merchant Ethernet silicon; ingress-dominant; hierarchical QoS; access edge role"
+  detail_page: "nokia-7210-sas"
+
+- model: "Nokia 7250 IXR"
+  vendor: "Nokia"
+  section: "Nokia Access / Aggregation"
+  port_type: "100G/400G (aggregation/DC edge)"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "moderate (shared)"
+  rx_buffer: "shared + VOQ"
+  tx_buffer: "VoQ"
+  notes: "Broadcom Jericho/Qumran family; VOQ reduces head-of-line blocking; low-latency DC/aggregation"
+  detail_page: "nokia-7250-ixr"
+
+- model: "Nokia 7705 SAR"
+  vendor: "Nokia"
+  section: "Nokia Access / Aggregation"
+  port_type: "Various adapter cards"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "~200–300 MB per adapter card"
+  rx_buffer: ""
+  tx_buffer: ""
+  notes: "SAR ASIC; fixed 512B (chained) or 2304B buffer segments; MBS per queue; mobile backhaul / TDM transport"
+  detail_page: "nokia-7705-sar"
+
+- model: "Nokia 7730 SXR"
+  vendor: "Nokia"
+  section: "Nokia Access / Aggregation"
+  port_type: "Various (core/DCI)"
+  rx_queue: "256k queues"
+  tx_queue: ""
+  total_buffer: "multi-GB (FP5-class)"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "FP5 silicon; same family as 7750 SR FP5; fully shared buffer; deterministic QoS; core/DCI role"
+  detail_page: "nokia-7730-sxr"
