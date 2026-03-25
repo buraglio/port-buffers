@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brocade MLX — Packet Buffer Reference</title>
+  <meta name="description" content="Buffer notes for the Brocade MLX chassis switch (VoQ)">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-title">Packet Buffer Reference</a>
+  <nav class="site-nav">
+    <a href="/">Table</a>
+    <a href="/summary/">Summary</a>
+    <a href="/concepts/microburst/">Microbursts</a>
+    <a href="/concepts/trident-plus/">Trident+</a>
+    <a href="/concepts/trident-ii/">Trident II</a>
+    <a href="/concepts/deep-buffer/">Deep Buffer</a>
+  </nav>
+</header>
+
+<main class="site-main">
+  <div class="page-content">
+  <h1>Brocade MLX</h1>
+  <p>The Brocade MLX is a chassis switch using <strong>Virtual Output Queuing (VoQ)</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Line Card</th>
+<th>Ports</th>
+<th>Total Buffer</th>
+<th>Buffer per Port-Queue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2-port 100 Gb/s</td>
+<td>2x 100GE</td>
+<td>3 GB</td>
+<td>256 MB/port-queue</td>
+</tr>
+<tr>
+<td>8-port 10 Gb/s</td>
+<td>8x 10GE</td>
+<td>3 GB</td>
+<td>256 MB/port-queue</td>
+</tr>
+<tr>
+<td>24-port 1 Gb/s</td>
+<td>24x 1GE</td>
+<td>1 GB</td>
+<td>64 MB/port-queue</td>
+</tr>
+</tbody>
+</table>
+<p>The Brocade MLX has extremely generous buffers across all line card types.</p>
+<h2>References</h2>
+<ul>
+<li><a href="/assets/pdfs/MLX_Series_Architecture_WP.pdf">Brocade MLX Architecture White Paper</a></li>
+<li><a href="/assets/pdfs/mlx-2x100-gbe-ds.pdf">MLX 2x100GbE Line Card Datasheet</a></li>
+</ul>
+<p><a href="/">← Back to the main buffer table</a></p>
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+  Source: Jim Warner, UCSC (archived 2014). Information is by rumor, innuendo, and extrapolation.
+  Manufacturers rarely publish packet buffer data in their data sheets.
+</footer>
+
+</body>
+</html>

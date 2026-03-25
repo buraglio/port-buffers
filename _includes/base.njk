@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} — {% endif %}Packet Buffer Reference</title>
+  {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-title">Packet Buffer Reference</a>
+  <nav class="site-nav">
+    <a href="/">Table</a>
+    <a href="/summary/">Summary</a>
+    <a href="/concepts/microburst/">Microbursts</a>
+    <a href="/concepts/trident-plus/">Trident+</a>
+    <a href="/concepts/trident-ii/">Trident II</a>
+    <a href="/concepts/deep-buffer/">Deep Buffer</a>
+  </nav>
+</header>
+
+<main class="site-main">
+  {{ content | safe }}
+</main>
+
+<footer class="site-footer">
+  Source: Jim Warner, UCSC (archived 2014). Information is by rumor, innuendo, and extrapolation.
+  Manufacturers rarely publish packet buffer data in their data sheets.
+</footer>
+
+</body>
+</html>

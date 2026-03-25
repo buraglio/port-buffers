@@ -1,0 +1,13 @@
+{
+  "name": "packet-buffer-reference",
+  "version": "1.0.0",
+  "description": "Packet buffer reference data for networking switches",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "js-yaml": "^4.1.1"
+  }
+}

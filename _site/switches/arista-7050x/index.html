@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arista 7050X — Packet Buffer Reference</title>
+  <meta name="description" content="Buffer notes for the Arista 7050X (Trident II)">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-title">Packet Buffer Reference</a>
+  <nav class="site-nav">
+    <a href="/">Table</a>
+    <a href="/summary/">Summary</a>
+    <a href="/concepts/microburst/">Microbursts</a>
+    <a href="/concepts/trident-plus/">Trident+</a>
+    <a href="/concepts/trident-ii/">Trident II</a>
+    <a href="/concepts/deep-buffer/">Deep Buffer</a>
+  </nav>
+</header>
+
+<main class="site-main">
+  <div class="page-content">
+  <h1>Arista 7050X</h1>
+  <p>The Arista 7050X is built on the <strong>Broadcom Trident II</strong> (BCM56850) ASIC — the first 32×40G switch from Arista.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ports</td>
+<td>32 QSFP</td>
+</tr>
+<tr>
+<td>RX Queues</td>
+<td>8Q</td>
+</tr>
+<tr>
+<td>Total Buffer</td>
+<td>12 MB</td>
+</tr>
+<tr>
+<td>TX Buffer (max to 1 port)</td>
+<td>Dynamic up to 8 MB</td>
+</tr>
+</tbody>
+</table>
+<h2>Buffer Details</h2>
+<p>The Trident II has 12 MB of on-chip packet buffer. The memory is split between dedicated per-port buffers and a dynamic shared pool. Most of the memory is in the shared pool. A single congested port can absorb up to 8 MB of the shared pool dynamically.</p>
+<p>See the <a href="/concepts/trident-ii/">Trident II architecture page</a> for more details.</p>
+<h2>References</h2>
+<ul>
+<li><a href="/assets/pdfs/Arista_7050X_Switch_Architecture.pdf">Arista 7050X Architecture Notes</a></li>
+</ul>
+<p><a href="/">← Back to the main buffer table</a></p>
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+  Source: Jim Warner, UCSC (archived 2014). Information is by rumor, innuendo, and extrapolation.
+  Manufacturers rarely publish packet buffer data in their data sheets.
+</footer>
+
+</body>
+</html>

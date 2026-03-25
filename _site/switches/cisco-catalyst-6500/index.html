@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cisco Catalyst 6500 — Packet Buffer Reference</title>
+  <meta name="description" content="Buffer notes for the Cisco Catalyst 6500 — complex architecture">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-title">Packet Buffer Reference</a>
+  <nav class="site-nav">
+    <a href="/">Table</a>
+    <a href="/summary/">Summary</a>
+    <a href="/concepts/microburst/">Microbursts</a>
+    <a href="/concepts/trident-plus/">Trident+</a>
+    <a href="/concepts/trident-ii/">Trident II</a>
+    <a href="/concepts/deep-buffer/">Deep Buffer</a>
+  </nav>
+</header>
+
+<main class="site-main">
+  <div class="page-content">
+  <h1>Cisco Catalyst 6500</h1>
+  <p>The Cisco Catalyst 6500 is a chassis switch with a complex buffer architecture that varies significantly by supervisor and line card combination. It deserves its own analysis rather than a single row in the main table.</p>
+<p>Key characteristics:</p>
+<ul>
+<li>Multiple supervisor engine options (SUP720, SUP2T, etc.) with very different architectures</li>
+<li>Line cards with per-port and shared buffer configurations</li>
+<li>VoQ is used on some line card/supervisor combinations</li>
+</ul>
+<p>For detailed information, refer to Cisco's QoS documentation for the specific line card and supervisor engine combination in use.</p>
+<h2>References</h2>
+<ul>
+<li><a href="/assets/pdfs/C6800-SUP6T.html">Catalyst 6500 Supervisor 2T Notes</a> <em>(original HTML)</em></li>
+</ul>
+<p><a href="/">← Back to the main buffer table</a></p>
+
+</div>
+
+</main>
+
+<footer class="site-footer">
+  Source: Jim Warner, UCSC (archived 2014). Information is by rumor, innuendo, and extrapolation.
+  Manufacturers rarely publish packet buffer data in their data sheets.
+</footer>
+
+</body>
+</html>

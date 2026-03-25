@@ -1,0 +1,90 @@
+---
+layout: base.njk
+title: "Packet Buffer Reference"
+description: "Packet buffer comparison table for networking switches, grouped by ASIC family"
+---
+
+<h1>Packet Buffer Reference</h1>
+
+<div class="disclaimer">
+  <strong>Data quality note:</strong> Information here is by <em>rumor, innuendo, and extrapolation</em>.
+  Manufacturers rarely publish packet buffer information in their data sheets.
+  See the <a href="/summary/">summary page</a> for context on why buffers matter,
+  or read about <a href="/concepts/microburst/">microbursts</a>.
+</div>
+
+<p style="font-size:0.85rem; color:#6c757d; margin-bottom:0.5rem;">
+  <strong>Shared memory</strong> means hardware permits buffers to be used by any port that needs them.
+  In a shared memory design, it is not possible to let ALL memory go to queued packets
+  (no room for new arrivals → head-of-line blocking).
+  Some switches have multiple switch ICs, each managing their own memory pool — memory from one IC
+  cannot be loaned to ports on another chip.
+  <strong>Max TX buffer</strong> is the most a single queue/port can claim from the shared pool.
+</p>
+
+{%- set sections = switches | uniqueSections -%}
+
+{% for section in sections %}
+  {%- set rows = switches | whereSection(section) -%}
+
+  <div class="section-header">
+    {% if section == "Trident+" %}
+      <a href="/concepts/trident-plus/">{{ section }}</a> — Broadcom BCM56840, Shared Memory, 9 MB on-chip
+    {% elif section == "Trident II" %}
+      <a href="/concepts/trident-ii/">{{ section }}</a> — Broadcom BCM56850/56854, Shared Memory, 12 MB on-chip
+    {% elif section == "Mellanox" %}
+      {{ section }} — Mellanox Spectrum ASIC, Shared Memory
+    {% elif section == "Other Shared Memory" %}
+      {{ section }} — Various ASICs
+    {% elif section == "Large Queue 1RU" %}
+      <a href="/concepts/deep-buffer/">{{ section }} Switches</a> — External DRAM, Very Large Buffers
+    {% elif section == "Virtual Output Port (VoQ)" %}
+      {{ section }} — Per-egress queues at ingress, eliminates head-of-line blocking
+    {% else %}
+      {{ section }}
+    {% endif %}
+  </div>
+
+  <div class="buffer-table-wrap">
+    <table class="buffer-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Port Type</th>
+          <th>RX Queue</th>
+          <th>TX Queue</th>
+          <th>Total Buffer</th>
+          <th>RX Buffer</th>
+          <th>TX Buffer</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sw in rows %}
+        <tr>
+          <td class="model-cell">
+            {% if sw.detail_page %}
+              <a class="model-link" href="/switches/{{ sw.detail_page }}/">{{ sw.model }}</a>
+            {% else %}
+              {{ sw.model }}
+            {% endif %}
+          </td>
+          <td>{{ sw.port_type or "" }}</td>
+          <td>{{ sw.rx_queue or '<span class="empty">—</span>' | safe }}</td>
+          <td>{{ sw.tx_queue or '<span class="empty">—</span>' | safe }}</td>
+          <td>{{ sw.total_buffer or '<span class="empty">—</span>' | safe }}</td>
+          <td>{{ sw.rx_buffer or '<span class="empty">—</span>' | safe }}</td>
+          <td>{{ sw.tx_buffer or '<span class="empty">—</span>' | safe }}</td>
+          <td class="notes-cell">{{ sw.notes or "" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endfor %}
+
+<p style="margin-top:2rem; font-size:0.82rem; color:#6c757d;">
+  To add or update a switch, edit <code>_data/switches.yaml</code>.
+  Each switch is one YAML block. Add a <code>detail_page</code> slug to link to a page in <code>content/switches/</code>.
+</p>
