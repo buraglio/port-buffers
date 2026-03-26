@@ -817,3 +817,79 @@
   tx_buffer: "shared"
   notes: "FP5 silicon; same family as 7750 SR FP5; fully shared buffer; deterministic QoS; core/DCI role"
   detail_page: "nokia-7730-sxr"
+
+# ─────────────────────────────────────────────
+# Broadcom Qumran (Qumran-MX, Qumran-AX)
+# Access / Aggregation deep buffer silicon
+# ─────────────────────────────────────────────
+
+- model: "Cisco NCS 5000 Series"
+  vendor: "Cisco"
+  section: "Broadcom Qumran"
+  port_type: "Various (10G/100G aggregation)"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "16 MB"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Qumran-MX; On-chip buffer only; metro aggregation"
+  detail_page: "cisco-ncs-5000"
+
+- model: "Cisco NCS 540 Series"
+  vendor: "Cisco"
+  section: "Broadcom Qumran"
+  port_type: "Various (1G/10G/100G)"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "Up to 3 GB"
+  rx_buffer: "VOQ"
+  tx_buffer: "VOQ"
+  notes: "Qumran family; Deep packet buffers for microbursts"
+  detail_page: "cisco-ncs-540"
+
+- model: "Cisco NCS 560 Series"
+  vendor: "Cisco"
+  section: "Broadcom Qumran"
+  port_type: "Modular (up to 100G line cards)"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "Line card dependent (Deep Buffer)"
+  rx_buffer: "VOQ"
+  tx_buffer: "VOQ"
+  notes: "Modular platform using Qumran/Jericho subsets in line cards"
+  detail_page: "cisco-ncs-560"
+
+# ─────────────────────────────────────────────
+# Broadcom Jericho & Jericho+ 
+# Deep buffer edge/core routing silicon
+# ─────────────────────────────────────────────
+
+- model: "Cisco NCS 5500 Series"
+  vendor: "Cisco"
+  section: "Broadcom Jericho"
+  port_type: "Various (up to 400G line cards)"
+  rx_queue: "VOQ"
+  tx_queue: "VOQ"
+  total_buffer: "16 MB on-chip + 4-8 GB off-chip per ASIC"
+  rx_buffer: "VOQ"
+  tx_buffer: "VOQ"
+  notes: "Jericho/Jericho+ ASIC; 16MB fast buffer, large GDDR5 deep buffer"
+  detail_page: "cisco-ncs-5500"
+
+# ─────────────────────────────────────────────
+# Broadcom Jericho2 (J2 / J2c)
+# High-bandwidth scale-out routing silicon
+# ─────────────────────────────────────────────
+
+- model: "Cisco NCS 5700 Series"
+  vendor: "Cisco"
+  section: "Broadcom Jericho2"
+  port_type: "Various (up to 400G line cards)"
+  rx_queue: "VOQ"
+  tx_queue: "VOQ"
+  total_buffer: "32 MB on-chip + 8 GB off-chip HBM per ASIC"
+  rx_buffer: "VOQ"
+  tx_buffer: "VOQ"
+  notes: "Jericho2 / J2c ASIC; HBM (High Bandwidth Memory) integration"
+  detail_page: "cisco-ncs-5700"
+
