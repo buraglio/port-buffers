@@ -38,5 +38,6 @@ Shallow-to-moderate by design. The 7250 IXR prioritizes **low latency and high t
 - Smaller total buffer than 7750 SR or 7730 SXR line cards
 
 See the [Nokia Access/Aggregation architecture page](/concepts/nokia-access-agg/) for cross-platform comparison.
+Additionally, you can read the [Broadcom Qumran architecture page](/concepts/broadcom-qumran/) for deep-dive details on the chipset.
 
 [← Back to the main buffer table](/)

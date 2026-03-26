@@ -766,33 +766,9 @@
   detail_page: "nokia-7750-sr"
 
 # ─────────────────────────────────────────────
-# Nokia Access / Aggregation – 7210 SAS, 7250 IXR, 7705 SAR, 7730 SXR
-# Mixed silicon strategies: merchant, SAR ASIC, and FP5
+# Nokia Access / Aggregation – 7705 SAR, 7730 SXR
+# Silicon strategies: SAR ASIC, and FP5
 # ─────────────────────────────────────────────
-
-- model: "Nokia 7210 SAS"
-  vendor: "Nokia"
-  section: "Nokia Access / Aggregation"
-  port_type: "Various (access/demarcation/cell-site)"
-  rx_queue: ""
-  tx_queue: ""
-  total_buffer: "64–512 MB"
-  rx_buffer: "shared ingress/egress"
-  tx_buffer: "shared ingress/egress"
-  notes: "Merchant Ethernet silicon; ingress-dominant; hierarchical QoS; access edge role"
-  detail_page: "nokia-7210-sas"
-
-- model: "Nokia 7250 IXR"
-  vendor: "Nokia"
-  section: "Nokia Access / Aggregation"
-  port_type: "100G/400G (aggregation/DC edge)"
-  rx_queue: ""
-  tx_queue: ""
-  total_buffer: "moderate (shared)"
-  rx_buffer: "shared + VOQ"
-  tx_buffer: "VoQ"
-  notes: "Broadcom Jericho/Qumran family; VOQ reduces head-of-line blocking; low-latency DC/aggregation"
-  detail_page: "nokia-7250-ixr"
 
 - model: "Nokia 7705 SAR"
   vendor: "Nokia"
@@ -819,9 +795,38 @@
   detail_page: "nokia-7730-sxr"
 
 # ─────────────────────────────────────────────
+# Merchant Access Silicon (Various)
+# Shallow-buffered access platforms
+# ─────────────────────────────────────────────
+
+- model: "Nokia 7210 SAS"
+  vendor: "Nokia"
+  section: "Merchant Access Silicon"
+  port_type: "Various (access/demarcation/cell-site)"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "64–512 MB"
+  rx_buffer: "shared ingress/egress"
+  tx_buffer: "shared ingress/egress"
+  notes: "Merchant Ethernet silicon; ingress-dominant; hierarchical QoS; access edge role"
+  detail_page: "nokia-7210-sas"
+
+# ─────────────────────────────────────────────
 # Broadcom Qumran (Qumran-MX, Qumran-AX)
 # Access / Aggregation deep buffer silicon
 # ─────────────────────────────────────────────
+
+- model: "Nokia 7250 IXR"
+  vendor: "Nokia"
+  section: "Broadcom Qumran"
+  port_type: "100G/400G (aggregation/DC edge)"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "moderate (shared)"
+  rx_buffer: "shared + VOQ"
+  tx_buffer: "VoQ"
+  notes: "Broadcom Jericho/Qumran family; VOQ reduces head-of-line blocking; low-latency DC/aggregation"
+  detail_page: "nokia-7250-ixr"
 
 - model: "Cisco NCS 5000 Series"
   vendor: "Cisco"
