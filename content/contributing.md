@@ -4,7 +4,7 @@ layout: page.njk
 description: "How to contribute new platforms, detail pages, and concept pages to the Packet Buffer Reference site."
 ---
 
-Contributions are welcome. This site is maintained by the community and grows by people adding platforms they work with or have data for.
+Contributions are welcome and encouraged. This site is maintained by the community and grows by people adding platforms they work with or have data for.
 
 ---
 
@@ -31,7 +31,7 @@ Contributions are welcome. This site is maintained by the community and grows by
 
 **1. Fork the repository**
 
-Click **Fork** in the top-right corner of the GitHub repository page.
+Click **Fork** in the top-right corner of the [GitHub repository page](https://github.com/buraglio/port-buffers). 
 
 **2. Clone your fork**
 
@@ -39,6 +39,7 @@ Click **Fork** in the top-right corner of the GitHub repository page.
 git clone https://github.com/YOUR-USERNAME/buffers-site.git
 cd buffers-site
 ```
+To run the site locally and verify that changes are working: 
 
 **3. Install dependencies**
 
@@ -52,7 +53,7 @@ npm install
 npm start
 ```
 
-The site will be available at `http://localhost:8080`. Eleventy watches for file changes and rebuilds automatically.
+The site will be available at `http://localhost:8080`. the Eleventy framework watches for file changes and rebuilds automatically.
 
 **5. Create a branch for your changes**
 
