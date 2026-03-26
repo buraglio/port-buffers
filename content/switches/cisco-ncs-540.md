@@ -23,4 +23,8 @@ The Cisco NCS 540 Series routers are meant for the access and aggregation edge, 
 
 See the [Broadcom Qumran Platform architecture](/concepts/broadcom-qumran/) page for broader details on the chipset family.
 
+## References
+- [Cisco Network Convergence System 540 Router Series](https://www.cisco.com/c/en/us/products/routers/network-convergence-system-500-series-routers/index.html)
+- [Cisco IOS XR Buffer Architecture Overviews](https://www.cisco.com/c/en/us/support/routers/network-convergence-system-500-series-routers/products-installation-and-configuration-guides-list.html)
+
 [← Back to the main buffer table](/)

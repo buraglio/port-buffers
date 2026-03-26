@@ -22,4 +22,8 @@ Every Jericho ASIC has two buffer silos:
 In a Jericho modular system, a packet arriving at ingress doesn't simply cross the fabric to wait at the egress port. It sits in the ingress line card's deep buffer while requesting permission to cross the fabric. It only transmits when the egress port sends a "credit" guaranteeing that space is available.
 This guarantees zero fabric congestion and abolishes head-of-line (HOL) blocking.
 
+## References
+- [Broadcom Jericho/Jericho2 Product Specifications](https://www.broadcom.com/products/ethernet-connectivity/switching/stradadnxa)
+- [Cisco NCS 5500 and 5700 Series Platform White Papers](https://www.cisco.com/c/en/us/products/routers/network-convergence-system-5500-series/white-paper-listing.html)
+
 [← Back to the main buffer table](/)

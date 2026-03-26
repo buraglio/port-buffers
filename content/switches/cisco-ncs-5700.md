@@ -23,4 +23,8 @@ The Cisco NCS 5700 Series, an evolution of the NCS 5500, leverages the **Broadco
 
 See the [Broadcom Jericho Platform architecture](/concepts/broadcom-jericho/) page for deeper details on Jericho evolution.
 
+## References
+- [Cisco NCS 5700 Modular Platform Architecture White Paper](https://www.cisco.com/c/en/us/products/collateral/routers/network-convergence-system-5500-series/white-paper-c11-744312.html)
+- [Broadcom StrataDNX Jericho2 BCM88690](https://www.broadcom.com/products/ethernet-connectivity/switching/stradadnxa/bcm88690)
+
 [← Back to the main buffer table](/)

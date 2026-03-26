@@ -23,4 +23,8 @@ The Cisco NCS 5500 Series is a high-density core/edge routing platform construct
 
 See the [Broadcom Jericho Platform architecture](/concepts/broadcom-jericho/) page for deeper details on Jericho routing capabilities.
 
+## References
+- [Cisco NCS 5500 Platform Architecture White Paper](https://www.cisco.com/c/en/us/products/collateral/routers/network-convergence-system-5500-series/white-paper-c11-736257.html)
+- [Broadcom StrataDNX Jericho Packet Processors](https://www.broadcom.com/products/ethernet-connectivity/switching/stradadnxa)
+
 [← Back to the main buffer table](/)

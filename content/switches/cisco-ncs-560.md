@@ -23,4 +23,7 @@ The Cisco NCS 560 Series (e.g., NCS 560-4) is a modular router platform serving 
 
 See the [Broadcom Qumran](/concepts/broadcom-qumran/) and [Broadcom Jericho](/concepts/broadcom-jericho/) architecture pages for ASIC specifics.
 
+## References
+- [Cisco Network Convergence System 560 Modular Routers](https://www.cisco.com/c/en/us/products/routers/network-convergence-system-500-series-routers/index.html)
+
 [← Back to the main buffer table](/)

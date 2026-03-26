@@ -15,4 +15,8 @@ It is widely utilized in equipment taking 100G/400G down to 1G/10G endpoints lay
 - **Deep Buffer Variants:** Some Qumran families provide external DRAM integration—scaling buffer pools into the **gigabytes** range (e.g. up to 3 GB in the Cisco NCS 540) to effortlessly accommodate speed mismatches where large inbound 100G streams must squeeze down into 1G or 10G tail circuits.
 - **Virtual Output Queueing (VOQ):** Most Qumran deep-buffer chips employ VOQ scheduling to ensure fairness and prevent head-of-line blocking under extreme congestion.
 
+## References
+- [Broadcom StrataDNX Family Overview](https://www.broadcom.com/products/ethernet-connectivity/switching/stradadnxa)
+- [Cisco Live: Deep Dive into Jericho and Qumran Architectures](https://www.ciscolive.com/c/dam/r/ciscolive/global-event/docs/2020/pdf/BRKOPT-2009.pdf)
+
 [← Back to the main buffer table](/)

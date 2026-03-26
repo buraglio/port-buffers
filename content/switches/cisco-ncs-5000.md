@@ -24,4 +24,7 @@ Unlike the deep-buffered NCS 540 or NCS 5500, the NCS 5000 relies purely on its 
 
 See the [Broadcom Qumran Platform architecture](/concepts/broadcom-qumran/) page for broader details on the chipset family.
 
+## References
+- [Cisco Network Convergence System 5000 Series Data Sheets & Specifications](https://www.cisco.com/c/en/us/products/routers/network-convergence-system-5000-series/index.html)
+
 [← Back to the main buffer table](/)
