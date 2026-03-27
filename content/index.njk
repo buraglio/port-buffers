@@ -42,6 +42,20 @@ description: "Packet buffer comparison table for networking switches, grouped by
       <a href="/concepts/deep-buffer/">{{ section }} Switches</a> — External DRAM, Very Large Buffers
     {% elif section == "Virtual Output Port (VoQ)" %}
       {{ section }} — Per-egress queues at ingress, eliminates head-of-line blocking
+    {% elif section == "Trident 3" %}
+      <a href="/concepts/broadcom-trident3/">{{ section }}</a> — Broadcom BCM56870/BCM56771, Unified Shared Memory, 32 MB on-chip
+    {% elif section == "Tomahawk" %}
+      {{ section }} — Broadcom BCM56960/BCM56967, Shared Memory, 16 MB on-chip (4 pipes × 4 MB each; not unified)
+    {% elif section == "Tomahawk 2" %}
+      {{ section }} — Broadcom BCM56970, Unified Shared Memory, 42 MB on-chip
+    {% elif section == "Trident 4" %}
+      <a href="/concepts/broadcom-trident4/">{{ section }}</a> — Broadcom BCM56880/BCM56780, Unified Shared Memory, up to 132 MB on-chip
+    {% elif section == "Tomahawk 3" %}
+      {{ section }} — Broadcom BCM56980, Unified Shared Memory, 64 MB on-chip
+    {% elif section == "Tomahawk 4" %}
+      <a href="/concepts/broadcom-tomahawk4/">{{ section }}</a> — Broadcom BCM56990/BCM56993, Unified Shared Memory, 56.83–113.66 MB on-chip
+    {% elif section == "Tomahawk 5" %}
+      {{ section }} — Broadcom BCM78900/BCM78902, Unified Shared Memory, up to 165.2 MB on-chip
     {% else %}
       {{ section }}
     {% endif %}
