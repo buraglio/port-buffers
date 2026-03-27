@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if title %}{{ title }} — {% endif %}Packet Buffer Reference</title>
-  {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+  {%- set pageTitle = title if (title and title != site.name) else "" -%}
+  <title>{% if pageTitle %}{{ pageTitle }} — {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{% if pageTitle %}{{ pageTitle }} — {% endif %}{{ site.name }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{% if pageTitle %}{{ pageTitle }} — {% endif %}{{ site.name }}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>

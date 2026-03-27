@@ -1,0 +1,5 @@
+{
+  "url": "https://YOUR-DOMAIN-HERE.com",
+  "name": "Packet Buffer Reference",
+  "description": "Packet buffer comparison table for networking switches and ASICs, grouped by chipset family. Data on Broadcom Tomahawk, Trident, Jericho, Nokia, Juniper, Arista, Cisco, and more."
+}
