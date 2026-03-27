@@ -31,5 +31,6 @@ The BCM78902 (N8650-32OD) is the half-bandwidth variant, targeting deployments r
 
 ## See Also
 
+- [Broadcom Tomahawk 5 Architecture](/concepts/broadcom-tomahawk5/) — ASIC-level buffer and architecture details
 - [Broadcom Tomahawk 4 Architecture](/concepts/broadcom-tomahawk4/) — predecessor generation
 - [Back to the main buffer table](/)

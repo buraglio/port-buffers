@@ -55,7 +55,11 @@ description: "Packet buffer comparison table for networking switches, grouped by
     {% elif section == "Tomahawk 4" %}
       <a href="/concepts/broadcom-tomahawk4/">{{ section }}</a> — Broadcom BCM56990/BCM56993, Unified Shared Memory, 56.83–113.66 MB on-chip
     {% elif section == "Tomahawk 5" %}
-      {{ section }} — Broadcom BCM78900/BCM78902, Unified Shared Memory, up to 165.2 MB on-chip
+      <a href="/concepts/broadcom-tomahawk5/">{{ section }}</a> — Broadcom BCM78900/BCM78902, Unified Shared Memory, up to 165.2 MB on-chip
+    {% elif section == "Broadcom Jericho" %}
+      <a href="/concepts/broadcom-jericho/">{{ section }}</a> — Broadcom BCM88670/BCM88675, VOQ + GDDR5 deep buffer, ~16 MB OCB
+    {% elif section == "Broadcom Jericho2" %}
+      <a href="/concepts/broadcom-jericho/">{{ section }}</a> — Broadcom BCM88690/BCM88800, VOQ + 8 GB HBM, ~32 MB OCB
     {% else %}
       {{ section }}
     {% endif %}

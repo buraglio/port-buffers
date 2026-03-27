@@ -22,6 +22,22 @@ Every Jericho ASIC has two buffer silos:
 In a Jericho modular system, a packet arriving at ingress doesn't simply cross the fabric to wait at the egress port. It sits in the ingress line card's deep buffer while requesting permission to cross the fabric. It only transmits when the egress port sends a "credit" guaranteeing that space is available.
 This guarantees zero fabric congestion and abolishes head-of-line (HOL) blocking.
 
+## Generational Summary
+
+| Generation | ASIC | OCB | Off-Chip | Capacity |
+| ---------- | ---- | --- | -------- | -------- |
+| Jericho | BCM88670 | ~16 MB | GDDR5 (4–8 GB) | 0.8 Tbps FD |
+| Jericho+ | BCM88675 | ~16 MB | GDDR5 (4–8 GB) | 0.8 Tbps FD |
+| Jericho 2 | BCM88690 | ~32 MB | 8 GB HBM2/2e | 1.6 Tbps FD |
+| Jericho 2c | BCM88800 | ~32 MB | 8 GB HBM2/2e | 1.6 Tbps FD |
+| Jericho 3 | BCM88830 | ~48 MB | Up to 32 GB HBM3 | 3.2 Tbps FD |
+| Jericho 4 | TBD | TBD | HBM3e/HBM4 (TBD) | ~6.4 Tbps FD (est.) |
+
+## See Also
+
+- [Broadcom Jericho 3 Architecture](/concepts/broadcom-jericho3/) — J3 (BCM88830) with HBM3 and 800G support
+- [Broadcom Jericho 4 Architecture](/concepts/broadcom-jericho4/) — next-generation StrataDNX roadmap
+
 ## References
 - [Broadcom Jericho/Jericho2 Product Specifications](https://www.broadcom.com/products/ethernet-connectivity/switching/stradadnxa)
 - [Cisco NCS 5500 and 5700 Series Platform White Papers](https://www.cisco.com/c/en/us/products/routers/network-convergence-system-5500-series/white-paper-listing.html)
