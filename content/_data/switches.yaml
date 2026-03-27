@@ -288,6 +288,18 @@
   notes: ""
   detail_page: "hp-5930"
 
+- model: "Aruba CX 8320"
+  vendor: "Aruba"
+  section: "Trident II"
+  port_type: "48x 10G and 6x 40G"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "16 MB"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Broadcom Trident II/Maverick; 16MB packet buffer"
+  detail_page: "aruba-cx-8320"
+
 # ─────────────────────────────────────────────
 # Mellanox – Shared Memory
 # ─────────────────────────────────────────────
@@ -898,3 +910,146 @@
   notes: "Jericho2 / J2c ASIC; HBM (High Bandwidth Memory) integration"
   detail_page: "cisco-ncs-5700"
 
+- model: "Arista 7280R3 / 7800R3 Series"
+  vendor: "Arista"
+  section: "Broadcom Jericho2"
+  port_type: "Various (10G/25G to 400G line cards/edge routers)"
+  rx_queue: "VOQ"
+  tx_queue: "VOQ"
+  total_buffer: "Ultra-deep buffer (up to 24 GB / 32 GB via HBM)"
+  rx_buffer: "VOQ"
+  tx_buffer: "VOQ"
+  notes: "Broadcom Jericho2; HBM integration for deep queueing"
+  detail_page: "arista-7280r3"
+
+# ─────────────────────────────────────────────
+# Trident 3 (BCM56870) – Shared Memory, 32 MB on-chip
+# ─────────────────────────────────────────────
+
+- model: "Arista 7050X3"
+  vendor: "Arista"
+  section: "Trident 3"
+  port_type: "Various (10G/25G/100G edge)"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "32 MB"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Broadcom Trident 3; flexible packet processor"
+  detail_page: "arista-7050x3"
+
+- model: "Aruba CX 8325"
+  vendor: "Aruba"
+  section: "Trident 3"
+  port_type: "32x 100G or 48x 25G"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "32 MB"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Broadcom Trident 3; 3 configurable lossless QoS pools"
+  detail_page: "aruba-cx-8325"
+
+- model: "Aruba CX 8360"
+  vendor: "Aruba"
+  section: "Trident 3"
+  port_type: "Various (32x 100G, 48x 25G aggregation/edge)"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "32 MB"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Broadcom Trident 3; Single fixed QoS pool"
+  detail_page: "aruba-cx-8360"
+
+- model: "Juniper QFX5120"
+  vendor: "Juniper"
+  section: "Trident 3"
+  port_type: "Various (32x 100G, 48x 25G)"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "32 MB"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Broadcom Trident 3; 25% dedicated buffer, remaining shared"
+  detail_page: "juniper-qfx5120"
+
+# ─────────────────────────────────────────────
+# Tomahawk (BCM56960) – Shared Memory, 16 MB on-chip
+# ─────────────────────────────────────────────
+
+- model: "Juniper QFX5200"
+  vendor: "Juniper"
+  section: "Tomahawk"
+  port_type: "32x 100G"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "16 MB"
+  rx_buffer: "shared per pipe"
+  tx_buffer: "shared per pipe"
+  notes: "Broadcom Tomahawk; 4 pipes, 4 MB per pipe serving 8 ports"
+  detail_page: "juniper-qfx5200"
+
+# ─────────────────────────────────────────────
+# Juniper Q5 – Deep Buffer with Hybrid Memory Cube (HMC)
+# ─────────────────────────────────────────────
+
+- model: "Juniper QFX10002"
+  vendor: "Juniper"
+  section: "Juniper Q5"
+  port_type: "Fixed 36x 100G or 72x 40G"
+  rx_queue: "VOQ"
+  tx_queue: "VOQ"
+  total_buffer: "Up to 100 ms per port"
+  rx_buffer: "VOQ"
+  tx_buffer: "VOQ"
+  notes: "Juniper Q5 custom ASIC; high-efficiency HMC memory for deep VOQ buffering"
+  detail_page: "juniper-qfx10002"
+
+# ─────────────────────────────────────────────
+# Trident 4 (BCM56880) – Shared Memory
+# ─────────────────────────────────────────────
+
+- model: "Arista 7050X4 Series"
+  vendor: "Arista"
+  section: "Trident 4"
+  port_type: "10G/25G/100G (Enterprise/DC edge)"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "Up to 132 MB"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Broadcom Trident 4; Up to 132MB shared packet buffer"
+  detail_page: "arista-7050x4"
+
+# ─────────────────────────────────────────────
+# Tomahawk 3 (BCM56980) – High Bandwidth Scale-out
+# ─────────────────────────────────────────────
+
+- model: "Arista 7060X4 Series"
+  vendor: "Arista"
+  section: "Tomahawk 3"
+  port_type: "32x 400G or dense 100G"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "64 MB"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Broadcom Tomahawk 3; 64MB shared buffer (some models 32MB)"
+  detail_page: "arista-7060x4"
+
+# ─────────────────────────────────────────────
+# Tomahawk 4 (BCM56990) – High Bandwidth Scale-out
+# ─────────────────────────────────────────────
+
+- model: "Arista 7060X5 Series"
+  vendor: "Arista"
+  section: "Tomahawk 4"
+  port_type: "32x 400G / 800G"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "Up to 114 MB"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Broadcom Tomahawk 4; Up to 114MB shared buffer"
+  detail_page: "arista-7060x5"
