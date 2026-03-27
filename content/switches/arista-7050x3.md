@@ -20,4 +20,7 @@ The 7050X3 contains a **32 MB fully shared packet buffer**. Using a flexible pac
 
 - [Arista 7050X3 Series Datasheet](https://www.arista.com/assets/data/pdf/Datasheets/7050X3-Datasheet.pdf)
 
-[← Back to the main buffer table](/)
+## See Also
+
+- [Broadcom Trident 3 Architecture](/concepts/broadcom-trident3/) — ASIC-level buffer details
+- [Back to the main buffer table](/)

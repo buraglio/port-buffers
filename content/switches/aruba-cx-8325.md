@@ -20,4 +20,7 @@ The CX 8325 features a 32 MB shared packet buffer. A unique attribute of this pl
 
 - [Aruba CX 8325 Datasheet](https://www.arubanetworks.com/assets/ds/DS_8325Series.pdf)
 
-[← Back to the main buffer table](/)
+## See Also
+
+- [Broadcom Trident 3 Architecture](/concepts/broadcom-trident3/) — ASIC-level buffer details
+- [Back to the main buffer table](/)

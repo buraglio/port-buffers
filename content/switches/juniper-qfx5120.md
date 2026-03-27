@@ -24,4 +24,7 @@ This intelligent allocation absorbs both sustained small flows and microburst be
 - [Juniper QFX5120 Architecture Guide](https://www.juniper.net/us/en/products/switches/qfx-series/qfx5120-ethernet-switch.html)
 - [QoS buffer understanding](https://www.juniper.net/documentation/us/en/software/junos/traffic-mgmt-qfx/topics/concept/cos-qfx-series-buffer-management-understanding.html)
 
-[← Back to the main buffer table](/)
+## See Also
+
+- [Broadcom Trident 3 Architecture](/concepts/broadcom-trident3/) — ASIC-level buffer details
+- [Back to the main buffer table](/)

@@ -20,4 +20,7 @@ Leveraging the advanced memory architecture of the Trident 4 silicon, the Arista
 
 - [Arista 7050X4 Series Datasheet](https://www.arista.com/assets/data/pdf/Datasheets/7050X4-Datasheet.pdf)
 
-[← Back to the main buffer table](/)
+## See Also
+
+- [Broadcom Trident 4 Architecture](/concepts/broadcom-trident4/) — ASIC-level buffer details
+- [Back to the main buffer table](/)

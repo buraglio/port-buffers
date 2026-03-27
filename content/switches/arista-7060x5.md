@@ -20,4 +20,7 @@ Capitalizing on the power of Tomahawk 4, the 7060X5 introduces a substantial **s
 
 - [Arista 7060X5 Series Datasheet](https://www.arista.com/assets/data/pdf/Datasheets/7060X5-Datasheet.pdf)
 
-[← Back to the main buffer table](/)
+## See Also
+
+- [Broadcom Tomahawk 4 Architecture](/concepts/broadcom-tomahawk4/) — ASIC-level buffer details
+- [Back to the main buffer table](/)

@@ -20,4 +20,7 @@ Consistent with Trident 3 silicon, the CX 8360 provides a 32 MB shared packet bu
 
 - [Aruba CX 8360 Datasheet](https://www.arubanetworks.com/assets/ds/DS_8360Series.pdf)
 
-[← Back to the main buffer table](/)
+## See Also
+
+- [Broadcom Trident 3 Architecture](/concepts/broadcom-trident3/) — ASIC-level buffer details
+- [Back to the main buffer table](/)
