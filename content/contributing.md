@@ -6,6 +6,9 @@ description: "How to contribute new platforms, detail pages, and concept pages t
 
 Contributions are welcome and encouraged. This site is maintained by the community and grows by people adding platforms they work with or have data for.
 
+> [!TIP]
+> **Easiest way to add a switch:** Use our [guided GitHub Issue Form](https://github.com/buraglio/port-buffers/issues/new?template=new_switch_addition.yml&title=%5BNew+Switch%5D%3A+) to submit the details directly from your browser! You just fill in the blanks, and we'll format the YAML for you.
+
 ---
 
 ## What You Can Contribute
