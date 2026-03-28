@@ -1,0 +1,97 @@
+name: ➕ Add a new Switch or Line Card
+description: Propose adding new packet buffer details for a switch or modular line card to the database.
+title: "[New Switch]: <Vendor> <Model>"
+labels: ["enhancement", "new-hardware"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping build the packet buffer database! Please fill out the following information as completely as possible. This information will be reformatted into `switches.yaml` and a dedicated Markdown page.
+
+  - type: input
+    id: model
+    attributes:
+      label: Switch or Line Card Model
+      description: What is the exact model name? (e.g., Arista 7050X3)
+    validations:
+      required: true
+
+  - type: input
+    id: vendor
+    attributes:
+      label: Vendor
+      description: Who makes it? (e.g., Arista, Cisco, Juniper)
+    validations:
+      required: true
+
+  - type: input
+    id: section
+    attributes:
+      label: ASIC Family / Section
+      description: What section of the table should this belong to? (e.g., Trident 3, Broadcom Jericho2, Tomahawk)
+    validations:
+      required: true
+
+  - type: input
+    id: port_type
+    attributes:
+      label: Port Configuration
+      description: Details about the physical ports (e.g., 32x 100G QSFP28, 48x 10G SFP+)
+    validations:
+      required: false
+
+  - type: input
+    id: total_buffer
+    attributes:
+      label: Total Packet Buffer
+      description: The total buffer capacity on the hardware (e.g., 16 MB, 64 MB, Ultra-deep 8 GB via HBM)
+    validations:
+      required: true
+
+  - type: input
+    id: rx_buffer
+    attributes:
+      label: RX Buffer allocation
+      description: How is the ingress buffer space allocated? (e.g., shared, VOQ, shared per pipe)
+    validations:
+      required: false
+
+  - type: input
+    id: tx_buffer
+    attributes:
+      label: TX Buffer allocation
+      description: How is the egress buffer space allocated? (e.g., shared, VOQ, Dynamic up to X MB)
+    validations:
+      required: false
+
+  - type: input
+    id: rx_queue
+    attributes:
+      label: RX Queues
+      description: Queueing structure for ingress (e.g., 8Q, VOQ, 128k queues)
+    validations:
+      required: false
+
+  - type: input
+    id: tx_queue
+    attributes:
+      label: TX Queues
+      description: Queueing structure for egress (e.g., 8Q, VOQ, 128k queues)
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Architecture Notes
+      description: Provide any specific architectural nuances, exact ASIC model, QoS pools, or microburst handling characteristics that should go in the YAML notes.
+    validations:
+      required: false
+
+  - type: textarea
+    id: references
+    attributes:
+      label: Narrative & References
+      description: Please provide links to official datasheets, architecture guides, or other verifiable sources to back up these numbers. If there is a paragraph of summary you'd like on the generated Markdown page, include it here.
+    validations:
+      required: true
