@@ -876,6 +876,42 @@
   notes: "Modular platform using Qumran/Jericho subsets in line cards"
   detail_page: "cisco-ncs-560"
 
+- model: "Edgecore AS5916-54XKS (AGR130)"
+  vendor: "Edgecore"
+  section: "Broadcom Qumran"
+  port_type: "48x 10G SFP+, 6x 100G QSFP28"
+  rx_queue: "VOQ"
+  tx_queue: "VOQ"
+  total_buffer: "8 GB (Deep Buffer)"
+  rx_buffer: "VOQ"
+  tx_buffer: "VOQ"
+  notes: "Broadcom Qumran-MX (BCM88375); 16 MB on-chip + 8 GB external DRAM"
+  detail_page: "edgecore-as5916"
+
+- model: "Edgecore AS7316-26XB (CSR320)"
+  vendor: "Edgecore"
+  section: "Broadcom Qumran"
+  port_type: "16x 10G SFP+, 8x 25G SFP28, 2x 100G QSFP28"
+  rx_queue: "VOQ"
+  tx_queue: "VOQ"
+  total_buffer: "~2 GB (Deep Buffer)"
+  rx_buffer: "VOQ"
+  tx_buffer: "VOQ"
+  notes: "Broadcom Qumran-AX (BCM88470); Deep packet buffer typically ~2GB via DRAM"
+  detail_page: "edgecore-as7316"
+
+- model: "UfiSpace S9510-28DC"
+  vendor: "UfiSpace"
+  section: "Broadcom Qumran"
+  port_type: "24x 10G/25G SFP28, 2x 100G QSFP28, 2x 40/100G"
+  rx_queue: "VOQ"
+  tx_queue: "VOQ"
+  total_buffer: "2 GB (Deep Buffer)"
+  rx_buffer: "VOQ"
+  tx_buffer: "VOQ"
+  notes: "Broadcom Qumran-AX; 2GB external deep buffer for 5G backhaul"
+  detail_page: "ufispace-s9510"
+
 # ─────────────────────────────────────────────
 # Broadcom Jericho & Jericho+ 
 # Deep buffer edge/core routing silicon
@@ -921,6 +957,23 @@
   tx_buffer: "VOQ"
   notes: "Broadcom Jericho2; HBM integration for deep queueing"
   detail_page: "arista-7280r3"
+
+# ─────────────────────────────────────────────
+# Broadcom Qumran2c (Q2c)
+# Deep buffer aggregation / core routing silicon
+# ─────────────────────────────────────────────
+
+- model: "UfiSpace S9600-72XC"
+  vendor: "UfiSpace"
+  section: "Broadcom Qumran2c"
+  port_type: "64x 25G SFP28, 8x 100G QSFP28"
+  rx_queue: "VOQ"
+  tx_queue: "VOQ"
+  total_buffer: "4 GB (Deep Buffer via HBM)"
+  rx_buffer: "VOQ"
+  tx_buffer: "VOQ"
+  notes: "Broadcom Qumran2c (BCM88820); 4GB deep packet buffer via integrated High Bandwidth Memory"
+  detail_page: "ufispace-s9600"
 
 # ─────────────────────────────────────────────
 # Trident 3 (BCM56870) – Shared Memory, 32 MB on-chip
@@ -1187,6 +1240,18 @@
   tx_buffer: "Dynamic (shared)"
   notes: "BCM56873 (Trident 3); 2.0 Tbps; 2nd-gen platform"
   detail_page: "fs-trident3"
+
+- model: "Edgecore AS7726-32X (DCS204)"
+  vendor: "Edgecore"
+  section: "Trident 3"
+  port_type: "32x 100G QSFP28"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "32 MB"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Broadcom Trident 3 (BCM56870); Fully shared 32MB on-chip buffer"
+  detail_page: "edgecore-as7726"
 
 # ─────────────────────────────────────────────
 # Tomahawk 2 (BCM56970) — Unified Shared Memory, 42 MB on-chip
