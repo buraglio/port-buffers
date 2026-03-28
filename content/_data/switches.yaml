@@ -1353,3 +1353,43 @@
   tx_buffer: "Dynamic (shared)"
   notes: "BCM78902 (Tomahawk 5, half-capacity); 25.6 Tbps; buffer inferred — not confirmed from official source"
   detail_page: "fs-tomahawk5"
+
+# ─────────────────────────────────────────────
+# Marvell Prestera (MikroTik)
+# ─────────────────────────────────────────────
+
+- model: "MikroTik CRS317-1G-16S+RM"
+  vendor: "MikroTik"
+  section: "Marvell Prestera (MikroTik)"
+  port_type: "16x 10G SFP+"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "~4 MB (Approximation)"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Marvell 98DX8216; highly approximated via RouterOS CLI total-byte-cap"
+  detail_page: "mikrotik-crs317"
+
+- model: "MikroTik CRS326-24G-2S+RM"
+  vendor: "MikroTik"
+  section: "Marvell Prestera (MikroTik)"
+  port_type: "24x 1G, 2x 10G SFP+"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "~1.5 MB (Approximation)"
+  rx_buffer: "shared"
+  tx_buffer: "shared"
+  notes: "Marvell 98DX3236; highly approximated via RouterOS CLI total-byte-cap"
+  detail_page: "mikrotik-crs326"
+
+- model: "MikroTik CCR2216-1G-12XS-2XQ"
+  vendor: "MikroTik"
+  section: "Marvell Prestera (MikroTik)"
+  port_type: "12x 25G SFP28, 2x 100G QSFP28"
+  rx_queue: ""
+  tx_queue: ""
+  total_buffer: "Small/Undisclosed (Approximation)"
+  rx_buffer: "dynamic"
+  tx_buffer: "dynamic"
+  notes: "Marvell Aldrin2 (98DX8525) HW offload; CPU RAM handles main routing queues"
+  detail_page: "mikrotik-ccr2216"
