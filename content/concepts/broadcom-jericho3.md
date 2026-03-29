@@ -1,52 +1,34 @@
 ---
-title: "Broadcom Jericho 3 Architecture"
+title: "Broadcom Jericho3 Architecture"
 layout: page.njk
-description: "ASIC-level buffer details for the Broadcom Jericho 3 (BCM88830) StrataDNX family"
+description: "Broadcom Jericho3 (J3C) – Deep buffer core routing silicon with HBM3 integration for 800G networks"
 ---
 
-The **Broadcom Jericho 3** (BCM88830), part of the StrataDNX family, is the third generation of Broadcom's deep-buffer carrier routing ASIC line. It targets 800G-era IP core and edge routing, AI/ML interconnect fabrics, and provider edge platforms where large sustained buffers are required alongside high port density.
+## Broadcom Jericho3 – Deep Buffer Core Routing
 
-## Overview
+**Broadcom Jericho3** (J3C/BCM88830) is the latest generation of Broadcom's deep buffer routing ASIC family, featuring HBM3 (High Bandwidth Memory 3) integration for ultra-deep packet buffering at 800G speeds.
 
-Jericho 3 doubles the per-chip capacity of Jericho 2 while retaining the two-tier buffer architecture (on-chip OCB + off-chip HBM) and the VOQ scheduling model that defines the StrataDNX line.
+### Architecture Overview
 
-| Field | Value |
-|-------|-------|
-| ASIC | BCM88830 (Jericho 3) |
+| Specification | Value |
+|---------------|-------|
+| ASIC | BCM88830 (Jericho3) |
 | Capacity | 3.2 Tbps full-duplex per NPU |
+| Process Node | TSMC 5nm (N5) |
 | On-Chip Buffer (OCB) | ~48 MB |
-| Off-Chip Buffer | Up to 32 GB HBM3 per ASIC |
-| Buffer Model | VOQ (Virtual Output Queueing) |
-| Process Node | TSMC 5 nm (N5) |
+| Off-Chip HBM3 | Up to 32 GB per ASIC |
+| Queue Structure | VOQ (Virtual Output Queuing) |
 | Interface Support | 800G (OSFP), 400G (QSFP-DD), 100G/25G/10G |
 
-**Data quality note:** The 48 MB OCB figure is derived from public Broadcom presentations and third-party silicon analysis. The HBM3 capacity (up to 32 GB) is sourced from Broadcom press material for Jericho 3 platform announcements. Exact per-deployment OCB and HBM configuration depends on the platform vendor's implementation.
+### Buffer Architecture
 
-## Buffer Architecture
+Jericho3 features a **hybrid buffer** architecture combining on-chip and off-chip memory:
 
-### Two-Tier Model
-
-Jericho 3 preserves the two-tier buffer hierarchy of the Jericho family:
-
-1. **On-Chip Buffer (OCB):** ~48 MB of embedded SRAM — fast, low-latency storage used for all traffic not experiencing congestion. Traffic that arrives and departs without congestion never touches HBM.
-
-2. **Off-Chip HBM3:** Up to 32 GB of High Bandwidth Memory directly stacked or closely coupled to the ASIC die. Traffic spills into HBM only under sustained congestion, providing multi-second buffering capacity at 800G line rates.
-
-This is fundamentally different from the Tomahawk/Trident families, which use only on-chip SRAM with no external memory tier. Jericho 3's OCB is smaller relative to the total throughput — but the HBM tier makes the total buffer orders of magnitude larger than any Tomahawk or Trident switch.
-
-### HBM3 vs. HBM Used in Jericho 2
-
-Jericho 2 (BCM88690) uses HBM2 or HBM2e, providing up to 8 GB at ~1 TB/s bandwidth. Jericho 3 advances to **HBM3**, which provides:
-
-- Higher bandwidth per stack (>2 TB/s)
-- Improved energy efficiency per bit
-- Support for larger DRAM stack depths, enabling up to 32 GB per ASIC
-
-The bandwidth increase is necessary to service 800G line cards without the HBM bus becoming the bottleneck during deep congestion.
-
-### Virtual Output Queueing (VOQ)
-
-Jericho 3 retains VOQ as its core scheduling architecture. In a Jericho 3 fabric system:
+- **On-Chip Buffer**: 48-64 MB fast access memory (OCB)
+- **Off-Chip Buffer**: 16-32 GB HBM3 (High Bandwidth Memory)
+- **Total Effective**: 16-32+ GB per ASIC
+- **Queue Structure**: Virtual Output Queuing (VOQ)
+- **Access Latency**: On-chip (<100ns), HBM3 (~500ns)
 
 - Packets arriving at an ingress NPU are queued in VOQs at ingress, one queue per egress destination
 - No packet crosses the fabric until credits are received from the egress NPU

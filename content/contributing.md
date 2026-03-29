@@ -22,6 +22,34 @@ Contributions are welcome and encouraged. This site is maintained by the communi
 
 ---
 
+## Recently Added Vendor Categories
+
+The following chipset vendors and ASIC families have been recently added to the reference:
+
+| Vendor/ASIC | Section | Status |
+|-------------|---------|--------|
+| Intel Tofino | P4-programmable switches | Active |
+| Marvell Teralynx | Merchant Ethernet silicon | Active |
+| NVIDIA Spectrum-X | AI/Ethernet fabric | Active |
+| Cisco Silicon One | 800G/1.6T switching | Active |
+| Broadcom Tomahawk 5 | 51.2 Tbps scale-out | Active |
+| Broadcom Jericho3 | Deep buffer routing (HBM3) | Active |
+| Cloud Hyperscaler ASICs | Custom cloud switching | Active |
+
+These additions bring the total number of documented ASIC families to 25+, covering the full spectrum from access switches to core routers.
+
+### Priority Areas for Future Contributions
+
+We're particularly interested in contributions for:
+
+- **800G/1.6T platforms**: New generation switches using latest ASICs
+- **AI/ML optimized fabrics**: Platforms designed for GPU clusters
+- **DPU/SmartNIC integration**: Converged switching and compute
+- **Open source NOS support**: SONiC, DANOS, P4Runtime platforms
+- **Carrier Ethernet**: Service provider edge and aggregation
+
+---
+
 ## Local Development Setup
 
 ### Prerequisites
