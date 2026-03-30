@@ -71,6 +71,8 @@ description: "Packet buffer comparison table for networking switches, grouped by
       {{ section }} — Broadcom Access & Aggregation VOQ Deep Buffer (Qumran-MX, Qumran-AX)
     {% elif section == "Broadcom Qumran2c" %}
       <a href="/concepts/broadcom-qumran2c/">{{ section }}</a> — Broadcom BCM88820, VOQ + 4 GB HBM integrated deep buffer
+    {% elif section == "Marvell OCTEON 10 (CN10K)" %}
+      <a href="/concepts/marvell-octeon-cn10k/">{{ section }}</a> — Programmable NP/DPU; DDR5-backed packet buffer (16–48 GB per NP), no fixed on-chip SRAM pool
     {% else %}
       {{ section }}
     {% endif %}
