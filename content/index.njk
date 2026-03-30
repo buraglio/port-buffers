@@ -73,6 +73,8 @@ description: "Packet buffer comparison table for networking switches, grouped by
       <a href="/concepts/broadcom-qumran2c/">{{ section }}</a> — Broadcom BCM88820, VOQ + 4 GB HBM integrated deep buffer
     {% elif section == "Marvell OCTEON 10 (CN10K)" %}
       <a href="/concepts/marvell-octeon-cn10k/">{{ section }}</a> — Programmable NP/DPU; DDR5-backed packet buffer (16–48 GB per NP), no fixed on-chip SRAM pool
+    {% elif section == "Marvell Prestera (MikroTik)" %}
+      <a href="/concepts/marvell-prestera/">{{ section }}</a> — Marvell 98DX3236/98DX8216/98DX8525 (Aldrin2), Shared SRAM, ~1.5–8 MB estimated
     {% else %}
       {{ section }}
     {% endif %}
