@@ -1458,3 +1458,31 @@
   tx_buffer: "dynamic"
   notes: "Marvell Aldrin2 (98DX8525) HW offload; CPU RAM handles main routing queues"
   detail_page: "mikrotik-ccr2216"
+
+# ─────────────────────────────────────────────
+# Marvell OCTEON 10 (CN10K) — DDR5-backed NP/DPU, no fixed on-chip SRAM packet buffer
+# ─────────────────────────────────────────────
+
+- model: "Asterfusion ET3608"
+  vendor: "Asterfusion"
+  section: "Marvell OCTEON 10 (CN10K)"
+  port_type: "2x 100G QSFP28, 2x 10G SFP+"
+  rx_queue: "Software-defined (DPDK/SONiC-VPP)"
+  tx_queue: ""
+  total_buffer: "16 GB DDR5 (expandable to 48 GB)"
+  rx_buffer: "DRAM pool (NPA)"
+  tx_buffer: "DRAM pool (NPA)"
+  notes: "CN103XX NP/DPU; buffer is external DDR5 DRAM, not on-chip SRAM; no public on-chip packet buffer figure from Marvell"
+  detail_page: ""
+
+- model: "Asterfusion ET3600"
+  vendor: "Asterfusion"
+  section: "Marvell OCTEON 10 (CN10K)"
+  port_type: "4x 100G QSFP28, 4x 10G SFP+"
+  rx_queue: "Software-defined (DPDK/SONiC-VPP)"
+  tx_queue: ""
+  total_buffer: "~32 GB DDR5 (2x CN103XX, 16 GB each)"
+  rx_buffer: "DRAM pool (NPA)"
+  tx_buffer: "DRAM pool (NPA)"
+  notes: "Dual CN103XX NP/DPU; 200 Gbps aggregate; buffer is external DDR5 DRAM per NP; no public on-chip packet buffer figure from Marvell"
+  detail_page: ""
