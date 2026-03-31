@@ -1,22 +1,39 @@
 ---
 title: "Broadcom Qumran Architecture"
 layout: page.njk
-description: "Overview of Broadcom Qumran ASIC buffering"
+description: "Overview of the Broadcom Qumran (Qumran-MX, Qumran-AX) deep buffer routing architecture"
 ---
 
-The **Broadcom Qumran** family is tailored for access and aggregation routers. While it shares DNX architecture roots with Jericho, Qumran ASICs are typically deployed in fixed-form platforms.
+The **Broadcom Qumran** family is tailored for access and aggregation routers. While it shares DNX architecture roots with Jericho, Qumran ASICs are typically deployed in fixed-form platforms and edge routing roles (carrier Ethernet, 5G mobile backhaul, broadband access).
 
-## Overview
-Unlike Jericho, which is suited for fabric-connected modular chassis, Qumran often handles the entire routing pipeline on a single chip, though some variants can be fabric-attached.
-It is widely utilized in equipment taking 100G/400G down to 1G/10G endpoints layer, such as the Cisco NCS 5000, NCS 540, and various Nokia platforms.
+## Deep Packet Buffering & VOQ
 
-## Generations and Buffer Characteristics
-- **Qumran-MX / AX:** Standardly equipped with an integrated **16 MB** to **32 MB** on-chip packet buffer. Deployed in environments requiring dense 10G/100G MAC capabilities but fewer prolonged microbursts (e.g., Cisco NCS 5000).
-- **Deep Buffer Variants:** Some Qumran families provide external DRAM integration—scaling buffer pools into the **gigabytes** range (e.g. up to 3 GB in the Cisco NCS 540) to effortlessly accommodate speed mismatches where large inbound 100G streams must squeeze down into 1G or 10G tail circuits.
-- **Virtual Output Queueing (VOQ):** Most Qumran deep-buffer chips employ VOQ scheduling to ensure fairness and prevent head-of-line blocking under extreme congestion.
+Standard data center ToR switches rely on shallow, fast on-chip memory (e.g., 16 MB or 32 MB) to handle clean, evenly distributed traffic. However, service provider edge networks frequently encounter massive speed mismatches—such as funneling traffic from a 100G core down to a 10G customer link or cell tower.
+
+To prevent devastating buffer exhaustion ("tail drops") in these scenarios, Qumran architecture pairs a small integrated on-chip buffer with massive external DRAM modules (often ranging from 2 GB up to 8 GB). 
+
+When congestion occurs, the ASIC seamlessly shunts overflowing packets into the external deep buffer. Crucially, Qumran employs **Virtual Output Queuing (VOQ)**. Rather than blindly pushing packets to an egress port buffer until it overflows, packets are queued logically at their *ingress* port until the *egress* port is ready to transmit them. This totally eliminates head-of-line blocking and ensures high priority traffic (like PTP or voice) is never dropped behind a burst of bulk data.
+
+## Qumran-MX vs. Qumran-AX
+
+While both share the same deep buffer and feature-rich routing DNA, they target different segments of the network edge:
+
+*   **Qumran-MX:** Designed for high-capacity aggregation and core routing. Operating at up to 800 Gbps, these chips (like the BCM88370 series) provide dense 10G/25G/40G/100G scaling for peering points and data center interconnects (DCI).
+*   **Qumran-AX:** Designed for metro-access and cell site routing (CSR). Operating at up to 300 Gbps, these chips (like the BCM88470 series) focus on high-volume, lower-density environments where deep buffering and advanced timing features are essential, but multi-terabit throughput is not.
+
+## Platforms Using This Architecture
+
+- [Edgecore AS5916-54XKS](/switches/edgecore-as5916/) (Qumran-MX)
+- [Edgecore AS7316-26XB](/switches/edgecore-as7316/) (Qumran-AX)
+- [UfiSpace S9510-28DC](/switches/ufispace-s9510/) (Qumran-AX)
+- [Cisco NCS 540 Series](/switches/cisco-ncs-540/)
+- [Cisco NCS 560 Series](/switches/cisco-ncs-560/)
 
 ## References
 - [Broadcom StrataDNX Family Overview](https://www.broadcom.com/products/ethernet-connectivity/switching/stradadnxa)
 - [Cisco Live: Deep Dive into Jericho and Qumran Architectures](https://www.ciscolive.com/c/dam/r/ciscolive/global-event/docs/2020/pdf/BRKOPT-2009.pdf)
+
+## See Also
+- [Broadcom Qumran2c Architecture](/concepts/broadcom-qumran2c/)
 
 [← Back to the main buffer table](/)
